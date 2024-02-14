@@ -199,7 +199,7 @@ h1 {
 
 .great {
   font-size: var(--fs-secondary);
-  font-weight: var(--fw-500);
+  font-weight: var(--fw-semibold);
 }
 
 .message {
