@@ -1,0 +1,330 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/*
+    Typographic tweaks!
+    3. Add accessible line-height
+    4. Improve text rendering
+  */
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+    5. Improve media defaults
+  */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+    6. Remove built-in form typography styles
+  */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+    7. Avoid text overflows
+  */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+/*
+    8. Create a root stacking context
+  */
+#root,
+#__next {
+  isolation: isolate;
+}
+
+:root {
+  /* ### Primary */
+  --Lightred: hsl(0, 100%, 67%);
+  --Orangeyyellow: hsl(39, 100%, 56%);
+  --Greenteal: hsl(166, 100%, 37%);
+  --Cobaltblue: hsl(234, 85%, 45%);
+
+  /* ## Gradients */
+
+  --Lightslateblue-bg: hsl(252, 100%, 67%);
+  --Lightroyalblue-bg: hsl(241, 81%, 54%);
+
+  --Violetblue-circle: hsla(256, 72%, 46%, 1);
+  --Persianblue-circle: hsla(241, 72%, 46%, 0);
+
+  /* ### Neutral */
+  --Paleblue: hsl(221, 100%, 96%);
+  --Lightlavender: hsl(241, 100%, 89%);
+  --Darkgrayblue: hsl(224, 30%, 27%);
+
+  --ff-primary: "Hanken Grotesk", sans-serif;
+
+  --fw-regular: 400;
+  --fw-500: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-800: 800;
+
+  --fs-giga: 3.125rem;
+  --fs-secondary: 1.5rem; 
+  --fs-title: 1.125rem; 
+  --fs-body: 1rem; 
+
+  --width-card: 50rem --737px;
+  --height-card: 28.4rem --512px;
+  --width-results: 20.5rem;
+
+  --opacity-first: 0.87;
+  --opacity-second: 0.54;
+  --opacity-third: 0.3;
+  --opacity-fourth: 0.075;
+
+  --Lightred-bg: hsla(0, 100%, 67%, var(--opacity-fourth));
+  --Orangeyyellow-bg: hsla(39, 100%, 56%, var(--opacity-fourth));
+  --Greenteal-bg: hsla(166, 100%, 37%, var(--opacity-fourth));
+  --Cobaltblue-bg: hsla(234, 85%, 45%, var(--opacity-fourth));
+}
+
+body {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--ff-primary);
+  height: 100lvh;
+
+}
+
+.card {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  border-radius: 2rem;
+  width: auto;
+  font-size: var(--fs-body);
+  box-shadow: 10px 10px 24px -11px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 10px 10px 24px -11px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 24px -11px rgba(0,0,0,0.75);
+
+}
+
+@media only screen and (min-width: 600px) {
+  .card {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .results-container {
+    width: var(--width-results);
+  }
+}
+
+h1 {
+  font-size: var(--fs-title);
+  margin: 0;
+}
+
+/* 1st column  */
+
+.results-container {
+  padding-bottom: 2.8125rem;
+  padding-top: 2.8125rem;
+  padding-left: 3.75rem;
+  padding-right: 3.75rem;
+  background: hsla(241, 81%, 54%, 1);
+  background: linear-gradient(
+    90deg,
+    hsla(241, 81%, 54%, 1) 0%,
+    hsla(252, 100%, 67%, 1) 100%
+  );
+  background: -moz-linear-gradient(
+    90deg,
+    hsla(241, 81%, 54%, 1) 0%,
+    hsla(252, 100%, 67%, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    90deg,
+    hsla(241, 81%, 54%, 1) 0%,
+    hsla(252, 100%, 67%, 1) 100%
+  );
+  color: white;
+  border-radius: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 20.5rem;
+}
+
+.result-label {
+  color: hsla(0, 100%, 100%, var(--opacity-first));
+}
+
+.score-circle {
+  padding: 2rem;
+  background: hsla(246, 86%, 57%, 1);
+
+background: linear-gradient(90deg, hsla(246, 86%, 57%, 1) 0%, hsla(255, 70%, 47%, 1) 100%);
+
+background: -moz-linear-gradient(90deg, hsla(246, 86%, 57%, 1) 0%, hsla(255, 70%, 47%, 1) 100%);
+
+background: -webkit-linear-gradient(90deg, hsla(246, 86%, 57%, 1) 0%, hsla(255, 70%, 47%, 1) 100%);
+
+filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#4734F0", endColorstr="#4F24CB", GradientType=1 );
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 11.1rem;
+  width: 11.1rem;
+  justify-content: center;
+}
+
+.score-result {
+  font-size: var(--fs-giga);
+  font-weight: var(--fw-bold);
+}
+
+.score-over {
+  color: hsla(0, 100%, 100%, var(--opacity-second));
+}
+
+.great {
+  font-size: var(--fs-secondary);
+  font-weight: var(--fw-semibold);
+}
+
+.message {
+  color: hsla(0, 100%, 100%, var(--opacity-first));
+  text-align: center;
+}
+
+/* 2nd column  */
+
+.summary-container {
+  padding-bottom: 2.8125rem;
+  padding-top: 2.8125rem;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 20.5rem;
+}
+
+.score-container-reaction {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: var(--Lightred-bg);
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.score-container-memory {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: var(--Orangeyyellow-bg);
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+}
+
+.score-container-verbal {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: var(--Greenteal-bg);
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+}
+
+.score-container-visual {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: var(--Cobaltblue-bg);
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.icon-label {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem; 
+}
+
+.score {
+  font-weight: var(--fw-bold);
+}
+
+.over {
+  color: hsla(0, 0%, 0%, var(--opacity-third));
+  font-weight: var(--fw-bold);
+}
+
+.reaction-label {
+  color: var(--Lightred);
+  font-weight: var(--fw-semibold);
+}
+
+.memory-label {
+  color: var(--Orangeyyellow);
+  font-weight: var(--fw-semibold);
+}
+
+.verbal-label {
+  color: var(--Greenteal);
+  font-weight: var(--fw-semibold);
+}
+
+.visual-label {
+  color: var(--Cobaltblue);
+  font-weight: var(--fw-semibold);
+}
+
+.continue-btn {
+  color: white;
+  background-color: var(--Darkgrayblue);
+  padding: 1.25rem;
+  border-radius: 2rem;
+  border: none;
+}
+
+.continue-btn:hover{
+  background: linear-gradient(
+    90deg,
+    hsla(241, 81%, 54%, 1) 0%,
+    hsla(252, 100%, 67%, 1) 100%
+  );
+  background: -moz-linear-gradient(
+    90deg,
+    hsla(241, 81%, 54%, 1) 0%,
+    hsla(252, 100%, 67%, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    90deg,
+    hsla(241, 81%, 54%, 1) 0%,
+    hsla(252, 100%, 67%, 1) 100%
+  );
+}
