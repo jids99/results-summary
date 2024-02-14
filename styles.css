@@ -85,13 +85,13 @@ h6 {
   --fw-800: 800;
 
   --fs-giga: 3.125rem;
-  --fs-secondary: 1.5rem; 
+  --fs-secondary: 1.75rem; 
   --fs-title: 1.125rem; 
-  --fs-body: 1rem; 
+  --fs-body: 0.875rem; 
 
   --width-card: 50rem --737px;
-  --height-card: 28.4rem --512px;
-  --width-results: 20.5rem;
+  --height-card: 32rem;
+  --width-column: 23.0625rem;
 
   --opacity-first: 0.87;
   --opacity-second: 0.54;
@@ -110,7 +110,6 @@ body {
   align-items: center;
   font-family: var(--ff-primary);
   height: 100lvh;
-
 }
 
 .card {
@@ -118,22 +117,17 @@ body {
   display: flex;
   flex-direction: column;
   border-radius: 2rem;
-  width: auto;
   font-size: var(--fs-body);
-  box-shadow: 10px 10px 24px -11px rgba(0,0,0,0.75);
-  -webkit-box-shadow: 10px 10px 24px -11px rgba(0,0,0,0.75);
-  -moz-box-shadow: 10px 10px 24px -11px rgba(0,0,0,0.75);
-
+  box-shadow: 10px 11px 43px -13px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 10px 11px 43px -13px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 11px 43px -13px rgba(0,0,0,0.75);
+  height: var(--height-card);                  
 }
 
 @media only screen and (min-width: 600px) {
   .card {
     display: flex;
     flex-direction: row;
-  }
-
-  .results-container {
-    width: var(--width-results);
   }
 }
 
@@ -171,7 +165,7 @@ h1 {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  width: 20.5rem;
+  width: var(--width-column);
 }
 
 .result-label {
@@ -181,20 +175,16 @@ h1 {
 .score-circle {
   padding: 2rem;
   background: hsla(246, 86%, 57%, 1);
-
-background: linear-gradient(90deg, hsla(246, 86%, 57%, 1) 0%, hsla(255, 70%, 47%, 1) 100%);
-
-background: -moz-linear-gradient(90deg, hsla(246, 86%, 57%, 1) 0%, hsla(255, 70%, 47%, 1) 100%);
-
-background: -webkit-linear-gradient(90deg, hsla(246, 86%, 57%, 1) 0%, hsla(255, 70%, 47%, 1) 100%);
-
-filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#4734F0", endColorstr="#4F24CB", GradientType=1 );
-  border-radius: 50%;
+  background: linear-gradient(90deg, hsla(246, 86%, 57%, 1) 0%, hsla(255, 70%, 47%, 1) 100%);
+  background: -moz-linear-gradient(90deg, hsla(246, 86%, 57%, 1) 0%, hsla(255, 70%, 47%, 1) 100%);
+  background: -webkit-linear-gradient(90deg, hsla(246, 86%, 57%, 1) 0%, hsla(255, 70%, 47%, 1) 100%);
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#4734F0", endColorstr="#4F24CB", GradientType=1 );
+    border-radius: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 11.1rem;
-  width: 11.1rem;
+  height: 12.5rem;
+  width: 12.5rem;
   justify-content: center;
 }
 
@@ -209,12 +199,13 @@ filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#4734F0", en
 
 .great {
   font-size: var(--fs-secondary);
-  font-weight: var(--fw-semibold);
+  font-weight: var(--fw-500);
 }
 
 .message {
   color: hsla(0, 100%, 100%, var(--opacity-first));
   text-align: center;
+  font-size: 1.125rem;
 }
 
 /* 2nd column  */
@@ -227,7 +218,7 @@ filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#4734F0", en
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  width: 20.5rem;
+  width: var(--width-column);
 }
 
 .score-container-reaction {
@@ -235,9 +226,13 @@ filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#4734F0", en
   flex-direction: row;
   justify-content: space-between;
   background-color: var(--Lightred-bg);
-  padding: 1.25rem;
   border-radius: 0.75rem;
   margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  padding-left: 1em;
+  padding-right: 1em;
+  height: 3.5rem;
 }
 
 .score-container-memory {
@@ -245,8 +240,12 @@ filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#4734F0", en
   flex-direction: row;
   justify-content: space-between;
   background-color: var(--Orangeyyellow-bg);
-  padding: 1.25rem;
   border-radius: 0.75rem;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  padding-left: 1em;
+  padding-right: 1em;
+  height: 3.5rem;
 }
 
 .score-container-verbal {
@@ -254,8 +253,12 @@ filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#4734F0", en
   flex-direction: row;
   justify-content: space-between;
   background-color: var(--Greenteal-bg);
-  padding: 1.25rem;
   border-radius: 0.75rem;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  padding-left: 1em;
+  padding-right: 1em;
+  height: 3.5rem;
 }
 
 .score-container-visual {
@@ -263,15 +266,19 @@ filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#4734F0", en
   flex-direction: row;
   justify-content: space-between;
   background-color: var(--Cobaltblue-bg);
-  padding: 1.25rem;
   border-radius: 0.75rem;
   margin-bottom: 1.5rem;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  padding-left: 1em;
+  padding-right: 1em;
+  height: 3.5rem;
 }
 
 .icon-label {
   display: flex;
   flex-direction: row;
-  gap: 1rem; 
+  gap: .875rem; 
 }
 
 .score {
@@ -309,6 +316,7 @@ filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#4734F0", en
   padding: 1.25rem;
   border-radius: 2rem;
   border: none;
+  height: 3.5rem;
 }
 
 .continue-btn:hover{
